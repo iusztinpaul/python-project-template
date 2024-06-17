@@ -28,3 +28,7 @@ lint-check-docker = "sh -c 'docker run --rm -i hadolint/hadolint < Dockerfile'"
 gitleaks-check = "docker run -v .:/src zricethezav/gitleaks:latest detect -v --source=/src"
 lint-fix = "poetry run ruff check --fix ."
 format-fix = "poetry run ruff format ."
+
+[tool.poe.tasks.test]
+cmd = "pytest tests/"
+env = { ENV_FILE = ".env.testing" }
